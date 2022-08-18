@@ -47,7 +47,7 @@ const filterOnIs_MIS_Admin = {
     column: "Is_MIS_Admin",
   },
   operator: "AND",
-  values: [1],
+  values: [0],
 };
 
 const filterOnSlicerTable = {
@@ -57,7 +57,7 @@ const filterOnSlicerTable = {
     column: "Sales_Team_Member",
   },
   operator: "AND",
-  values: [""],
+  values: ["AMIT RAO"],
 };
 
 // AJAX request to get the report details from the API and pass it to the UI
