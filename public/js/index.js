@@ -5,16 +5,16 @@
 
 let models = window["powerbi-client"].models;
 let reportContainer = $("#report-container").get(0);
+let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+    let newSettings = {
+        layoutType: models.LayoutType.MobileLandscape
+    }; 
 
-let loadedResolve,
-  reportLoaded = new Promise((res, rej) => {
-    loadedResolve = res;
-  });
-let renderedResolve,
-  reportRendered = new Promise((res, rej) => {
-    renderedResolve = res;
-  });
-
+    if (isMobile) { //this returns true or false
+        newSettings = {
+            layoutType: newSettings
+        };
+    }
 // Initialize iframe for embedding report
 powerbi.bootstrap(reportContainer, { 
   type: "report",
@@ -68,7 +68,6 @@ $.ajax({
           },
           pageNavigation: { visible: false },
         },
-        layoutType: models.LayoutType.MobilePortrait
       },
 
       // Enable this setting to remove gray shoulders from embedded report
