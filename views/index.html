@@ -1,0 +1,48 @@
+<!-- Copyright (c) Microsoft Corporation.
+Licensed under the MIT license. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="shortcut icon" href="#" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/index.css">
+    <title>Embedded Power BI report</title>
+    <style>
+        hr { 
+            height:2px;
+            border-width:0;
+            color:gray;
+            background-color:gray;
+            border-width: 0px;
+        } 
+        </style>
+</head>
+
+<body>
+    <!-- <header class="embed-container col-lg-12 col-md-12 col-sm-12 shadow">
+        <p>
+            Power BI Embedded
+        </p>
+    </header> -->
+    <main class="row">
+        <section id="report-container" class="embed-container">
+        </section>
+
+        <!-- Used to display report embed error messages -->
+        <section class="error-container">
+        </section>
+    </main>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/powerbi.min.js"></script>
+    <script src="../public/js/index.js"></script>
+
+</body>
+
+</html>
