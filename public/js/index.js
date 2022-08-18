@@ -5,23 +5,39 @@
 
 let models = window["powerbi-client"].models;
 let reportContainer = $("#report-container").get(0);
+
+let newsettingD = {
+  panes: {
+    filters: {
+      visible: false
+    },
+    pageNavigation: { visible: false },
+  },
+  layoutType: models.LayoutType.MobileLandscape
+}
+
+let newsettingM = {
+  panes: {
+    filters: {
+      visible: false
+    },
+    pageNavigation: { visible: false },
+  },
+  layoutType: models.LayoutType.MobilePortrait
+}
+
 let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
-    let newSettings = {
-        layoutType: models.LayoutType.MobileLandscape
-    }; 
+    let newSettings = newsettingD
 
     if (isMobile) { //this returns true or false
-        newSettings = {
-            layoutType: newSettings
-        };
+        newSettings = newsettingM
     }
+
 // Initialize iframe for embedding report
 powerbi.bootstrap(reportContainer, { 
   type: "report",
   hostname: "https://app.powerbi.com",
-  settings: {
-      layoutType: models.LayoutType.MobileLandscape
-  }
+  settings: newSettings
 });
 
 const filterOnIs_MIS_Admin = {
@@ -61,14 +77,7 @@ $.ajax({
 
       // Use other embed report config based on the requirement. We have used the first one for demo purpose
       embedUrl: URL,
-      settings: {
-        panes: {
-          filters: {
-            visible: false
-          },
-          pageNavigation: { visible: false },
-        },
-      },
+      settings: newSettings
 
       // Enable this setting to remove gray shoulders from embedded report
       // settings: {
@@ -146,19 +155,19 @@ $.ajax({
 });
 
 
-window.addEventListener('resize', async ()=>{
-  //write a function to detect the screen size
-  let isMobile=await isMobileScreen(); 
+// window.addEventListener('resize', async ()=>{
+//   //write a function to detect the screen size
+//   let isMobile=await isMobileScreen(); 
   
-  let newSettings = {
-      layoutType: models.LayoutType.MobileLandscape
-  }; 
+//   let newSettings = {
+//       layoutType: models.LayoutType.MobileLandscape
+//   }; 
   
-  if(isMobile){ //this returns true or false
-      newSettings = {
-          layoutType: models.LayoutType.MobilePortrait
-      };
-      report.updateSettings(newSettings);//update the report settings
-  }else{
-      report.updateSettings(newSettings); //update the report settings
-  }});
+//   if(isMobile){ //this returns true or false
+//       newSettings = {
+//           layoutType: models.LayoutType.MobilePortrait
+//       };
+//       report.updateSettings(newSettings);//update the report settings
+//   }else{
+//       report.updateSettings(newSettings); //update the report settings
+//   }});
