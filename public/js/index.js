@@ -5,6 +5,12 @@
 
 let models = window["powerbi-client"].models;
 let reportContainer = $("#report-container").get(0);
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+let Is_MIS_AdminValue= urlParams.get('Is_MIS_AdminValue')
+let Sales_Team_MemberValue= urlParams.get('Sales_Team_MemberValue')
+
+console.log(Is_MIS_AdminValue,Sales_Team_MemberValue)
 
 let newsettingD = {
   panes: {
@@ -47,7 +53,7 @@ const filterOnIs_MIS_Admin = {
     column: "Is_MIS_Admin",
   },
   operator: "AND",
-  values: [0],
+  values: [parseInt(Is_MIS_AdminValue)],
 };
 
 const filterOnSlicerTable = {
@@ -57,7 +63,7 @@ const filterOnSlicerTable = {
     column: "Sales_Team_Member",
   },
   operator: "AND",
-  values: ["AMIT RAO"],
+  values: [Sales_Team_MemberValue],
 };
 
 // AJAX request to get the report details from the API and pass it to the UI
