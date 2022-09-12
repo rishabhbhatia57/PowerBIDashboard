@@ -8,7 +8,7 @@ let reportContainer = $("#report-container").get(0);
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 let Is_MIS_AdminValue= urlParams.get('Is_MIS_AdminValue')
-let Sales_Team_MemberValue= urlParams.get('Sales_Team_MemberValue')
+let Sales_Team_MemberValue= urlParams.get('Current_SalesTeamValue')
 
 console.log(Is_MIS_AdminValue,Sales_Team_MemberValue)
 
