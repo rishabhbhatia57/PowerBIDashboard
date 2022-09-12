@@ -59,7 +59,7 @@ const filterOnIs_MIS_Admin = {
 const filterOnSlicerTable = {
   $schema: "http://powerbi.com/product/schema#basic",
   target: {
-    table: "SlicerTable",
+    table: "Sales_Team_Member",
     column: "Sales_Team_Member",
   },
   operator: "AND",
