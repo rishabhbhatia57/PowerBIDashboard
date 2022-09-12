@@ -79,7 +79,7 @@ $.ajax({
       type: "report",
       tokenType: models.TokenType.Embed,
       accessToken: embedData.accessToken,
-      // filters: [filterOnIs_MIS_Admin, filterOnSlicerTable],
+      filters: [filterOnIs_MIS_Admin, filterOnSlicerTable],
 
       // Use other embed report config based on the requirement. We have used the first one for demo purpose
       embedUrl: URL,
