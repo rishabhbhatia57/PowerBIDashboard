@@ -59,12 +59,14 @@ const filterOnIs_MIS_Admin = {
 const filterOnSlicerTable = {
   $schema: "http://powerbi.com/product/schema#basic",
   target: {
-    table: "Current_SalesTeam",
-    column: "Current_SalesTeam",
+    table: "Sales_Team_Member",
+    column: "Sales_Team_Member",
   },
   operator: "AND",
   values: [Sales_Team_MemberValue],
 };
+
+console.log(Sales_Team_MemberValue)
 
 // AJAX request to get the report details from the API and pass it to the UI
 $.ajax({
